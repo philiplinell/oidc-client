@@ -1,0 +1,26 @@
+{
+  "name": "oidc-client",
+  "version": "1.0.0",
+  "description": "🕺",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philiplinell/oidc-client.git"
+  },
+  "author": "Philip Linell",
+  "private": true,
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/philiplinell/oidc-client/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/philiplinell/oidc-client#readme",
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
