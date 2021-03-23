@@ -4,7 +4,9 @@
   "description": "🕺",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "lint": "eslint src --ext .js",
+    "lint:fix": "eslint --fix src --ext .js"
   },
   "repository": {
     "type": "git",
