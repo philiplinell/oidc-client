@@ -16,9 +16,19 @@ class OIDC {
     }
   }
 
-  async registerAsClient () {
+  async registerAsClient (registrationToken) {
     try {
-      // fixme
+      logger.debug(`Registering as client on ${this.issuer.metadata.registration_endpoint}`);
+      this.clientData = await this.issuer.Client.register({
+        application_type: 'web',
+        client_name: 'My Example Client',
+        client_description: 'An example client for testing OIDC',
+        redirect_uris: ['http://localhost:9191']
+      }, {
+        initialAccessToken: registrationToken
+      });
+
+      logger.debug(`Registered as client with id ${this.clientData.client_id}`);
     } catch (err) {
       throw new Error(`could not register as client: ${err}`);
     }

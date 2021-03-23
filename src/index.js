@@ -14,12 +14,18 @@ if (!process.env.AUTH_SERVER_URL) {
   process.exit(1);
 }
 
+if (!process.env.REGISTRATION_TOKEN) {
+  logger.error('Missing env REGISTRATION_TOKEN');
+  process.exit(1);
+}
+
 const oidc = new OIDC(process.env.AUTH_SERVER_URL);
 
 const webServer = new WebServer(port);
 
 oidc.discover()
-  .then(webServer.start())
+  .then(() => oidc.registerAsClient(process.env.REGISTRATION_TOKEN))
+  .then(() => webServer.start())
   .then(() => {
     logger.info(`Listening on port ${port}...`);
   })
